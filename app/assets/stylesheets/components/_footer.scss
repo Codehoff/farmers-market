@@ -1,0 +1,13 @@
+.foot {
+    display: flex;
+    background: black;
+    color: white;
+    margin-bottom: 0px;
+    height: 150px;
+    position: relative;
+    align-items: center;
+    
+    .container {
+        text-align: center;       
+    }
+}

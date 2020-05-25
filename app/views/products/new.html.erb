@@ -1,2 +1,17 @@
-<h1>Products#new</h1>
-<p>Find me in app/views/products/new.html.erb</p>
+<h1>Add your own product</h1>
+<div class="container mt-5"><%= simple_form_for [ @product ],
+
+    wrapper: :floating_labels_form,
+    wrapper_mappings: {
+      select:        :floating_labels_select
+    } do |f| %>
+
+    <%= f.error_notification %>
+
+    <%= f.input :name, label: false %>
+
+    <%= f.button :submit, class: "btn-success" %>
+    <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary"%>
+    <%= link_to "back to front page", :back, {:class => "btn-outline-secondary ml-2"} %>
+  <% end %>
+</div>
