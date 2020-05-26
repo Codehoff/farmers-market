@@ -17,18 +17,15 @@ class OrdersController < ApplicationController
     @product = Product.find(params[:product_id])
     @order = Order.new(order_params)
     @order.product = @product
-    if @order.save
-      redirect_to product_path(@product)
-    else
-      @review = Review.new
-      render "products/show"
-    end
+    redirect_to product_path(@product)
+    raise
   end
 
   def destroy
     @order = Order.find(params[:id])
     @order.destroy
     redirect_to product_path(@order.product)
+    
   end
 
   private
@@ -38,7 +35,7 @@ class OrdersController < ApplicationController
   end
 
   def order_params
-    params.require(:order).permit(:quantity, :price_per_unit, :total_price, :user_id, :product_id)
+    params.require(:order).permit(:quantity)
   end
 end
 
