@@ -3,11 +3,15 @@
   <div class="cards">
     <% @products.each do |product| %>
       <%= link_to "products/#{product.id}" do %>
-          <div class="card-trip" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('');">
-            <div class="container">
-              <h2><%= product.name %></h2>
-            </div>
+        <% if product.photo.attached? %>
+          <div class="card-trip" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path product.photo.key %>');">
+        <% else %>
+           <div class="card-trip">
+        <% end %>
+          <div class="container">
+            <h2><%= product.name %></h2>
           </div>
-        <% end %> 
+        </div>
+      <% end %> 
     <%end%>
   </div>

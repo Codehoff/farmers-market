@@ -9,7 +9,13 @@
 
         <%= f.error_notification %>
 
-        <%= f.input :name, label: false %>
+        <%= f.input :name%>
+        <%= f.input :description%>
+        <%= f.input :category%>
+        <%= f.input :unit%>
+        <%= f.input :stock_info, label: "In stock"%>
+        <%= f.input :price%>
+        <%= f.input :photo%>
 
         <%= f.button :submit, class: "btn-success" %>
         <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary"%>

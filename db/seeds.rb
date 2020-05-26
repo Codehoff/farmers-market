@@ -7,5 +7,5 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 Product.destroy_all
 
-Product.create(name: "Asparagus")
-Product.create(name: "Potatoe")
+Product.create(name: "Asparagus", description: "Fresh green asparagus", price: "10€", stock_info: 200, unit: "kg", user_id: 1, category: "edible plant stem")
+Product.create(name: "Potatoes", description: "Super duper potatoes", price: "2€", stock_info: 1000, unit: "kg", user_id: 1, category: "root")
