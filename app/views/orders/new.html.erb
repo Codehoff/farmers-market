@@ -1,0 +1,7 @@
+
+<h3>Add a new Order</h3>
+<%= simple_form_for [@product, @order] do |f| %>
+  Enter the quantity you want to add:
+  <%= f.input :quantity %>
+  <%= f.button :submit, class: "btn btn-primary" %>
+<% end %>
