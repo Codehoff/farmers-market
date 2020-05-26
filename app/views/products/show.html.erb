@@ -1,6 +1,13 @@
-<div class="banner" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url();">
+<% if @product.photo.attached? %>
+    <div class="banner d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @product.photo.key %> ');">
+<% else %>
+    <div class="banner" style="background:red">
+<% end %>
   <div class="container">
     <h1 id= banner-text-typedjs></h1>
   </div>
 </div>
+<div class=ml-5>
 <h1><%=@product.name%></h1>
+<%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %> 
+</div>
