@@ -3,4 +3,7 @@
     <h1 id= banner-text-typedjs></h1>
   </div>
 </div>
+<div class=ml-5>
 <h1><%=@product.name%></h1>
+<%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %> 
+</div>
