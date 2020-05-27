@@ -1,7 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show]
 
-  
+
   def index
     @orders = Order.all
   end
@@ -19,7 +19,7 @@ class OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.product = @product
       @order.user = current_user
-     
+
       if @order.save
           redirect_to "/orders"
       else
@@ -27,9 +27,12 @@ class OrdersController < ApplicationController
       end
       
     end
-  
+
+    def destroy
+    end
+
     private
-  
+
     def order_params
       params.require(:order).permit(:quantity)
     end

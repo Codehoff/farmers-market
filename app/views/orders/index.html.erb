@@ -1,0 +1,9 @@
+<h1>Products</h1>
+
+  <div class="cards">
+    <% @orders.each do |order| %>
+        <%= order.product.name %>
+    <% end %>
+  </div>
+
+<!-- link_to root_path -->
