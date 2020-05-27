@@ -1,6 +1,7 @@
 class OrdersController < ApplicationController
   before_action :set_order, only: [:show]
 
+  
   def index
     @orders = Order.all
   end
@@ -9,33 +10,27 @@ class OrdersController < ApplicationController
   end
 
   def new
-   @product = Product.find(params[:product_id])
-   @order = Order.new
+      @product = Product.find(params[:product_id])
+      @order = Order.new
   end
 
   def create
-    @product = Product.find(params[:product_id])
-    @order = Order.new(order_params)
-    @order.product = @product
-    redirect_to product_path(@product)
-    raise
-  end
-
-  def destroy
-    @order = Order.find(params[:id])
-    @order.destroy
-    redirect_to product_path(@order.product)
-    
-  end
-
-  private
-
-  def set_order
-    @order = Order.find(params[:id])
-  end
-
-  def order_params
-    params.require(:order).permit(:quantity)
-  end
+      @product = Product.find(params[:product_id])
+      @order = Order.new(order_params)
+      @order.product = @product
+      @order.user = current_user
+     
+      if @order.save
+          redirect_to product_path(@product)
+      else
+          render :new
+      end
+    end
+  
+    private
+  
+    def order_params
+      params.require(:order).permit(:quantity)
+    end
 end
 

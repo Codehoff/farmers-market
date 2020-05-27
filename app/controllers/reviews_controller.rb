@@ -1,28 +1,35 @@
 class ReviewsController < ApplicationController
-  before_action :find_order
+  before_action :set_review, only: [:show]
+
+  
+  def index
+    @reviews = review.all
+  end
+
+  def show
+  end
+
   def new
-    @review = Review.new
+      @product = Product.find(params[:product_id])
+      @review = Review.new
   end
 
   def create
-    @review = Review.new(review_params)
-    @review.order = Order.find(params[:order_id])
-    @review.order = @order
-    if @review.save
-      redirect_to order_path(@order)
-    else
-      render :new
+      @product = Product.find(params[:product_id])
+      @review = Review.new(review_params)
+      @review.product = @product     
+      if @review.save
+          redirect_to product_path(@product)
+      else
+          render :new
+      end
+      raise
     end
-  end
-
-  private
-
-  def review_params
-    params.require(:review).permit(:content, :rating)
-  end
-
-  def find_order
-    @order = Restaurant.find(params[:order_id])
-  end
+  
+    private
+  
+    def review_params
+      params.require(:review).permit(:content)
+    end
 end
 

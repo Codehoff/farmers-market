@@ -1,5 +1,6 @@
 class Product < ApplicationRecord
     has_many :orders
+    has_many :reviews
     belongs_to :user
     has_one_attached :photo
     validates :name, presence: true

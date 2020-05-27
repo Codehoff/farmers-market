@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_05_26_151328) do
+ActiveRecord::Schema.define(version: 2020_05_27_081802) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -40,8 +40,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_151328) do
     t.text "quantity"
     t.integer "price_per_unit"
     t.integer "total_price"
-    t.bigint "user_id", null: false
-    t.bigint "product_id", null: false
+    t.bigint "user_id"
+    t.bigint "product_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.index ["product_id"], name: "index_orders_on_product_id"
@@ -56,8 +56,10 @@ ActiveRecord::Schema.define(version: 2020_05_26_151328) do
     t.integer "stock_info"
     t.string "unit"
     t.bigint "user_id"
+    t.bigint "reviews_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["reviews_id"], name: "index_products_on_reviews_id"
     t.index ["user_id"], name: "index_products_on_user_id"
   end
 
@@ -66,6 +68,8 @@ ActiveRecord::Schema.define(version: 2020_05_26_151328) do
     t.integer "rating"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.bigint "product_id", null: false
+    t.index ["product_id"], name: "index_reviews_on_product_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -83,5 +87,7 @@ ActiveRecord::Schema.define(version: 2020_05_26_151328) do
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "orders", "products"
   add_foreign_key "orders", "users"
+  add_foreign_key "products", "reviews", column: "reviews_id"
   add_foreign_key "products", "users"
+  add_foreign_key "reviews", "products"
 end

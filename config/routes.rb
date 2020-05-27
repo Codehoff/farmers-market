@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   root to: 'pages#home'
   resources :products do
     resources :orders, only: [:new, :create]
+    resources :reviews, only: [:new, :create]
   end
   resources :orders, only: [:index]
 
