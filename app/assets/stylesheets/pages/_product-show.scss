@@ -1,0 +1,67 @@
+
+.product-wrapper {
+  display: flex;
+  margin-top: 32px;
+  margin-bottom: 32px;
+}
+
+.product-wrapper h3 {
+  margin-top: 0;
+
+}
+
+
+/*Photo gallery starts here*/
+/* The grid: Four equal columns that floats next to each other */
+
+.gallery {
+  display: flex;
+
+}
+
+.column {
+  /*float: left;*/
+  width: 80px;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-bottom: 16px;
+  margin-right: 24px;
+}
+
+/* Style the images inside the grid */
+
+.column img {
+  opacity: 0.9;
+  cursor: pointer;
+  width: 100%;
+  height: 80px;
+  object-fit: cover;
+
+}
+
+.column img:focus {
+  opacity: 1;
+  box-sizing: border-box;
+  border: #4CAF50 solid 4px;
+  outline: 0;
+}
+
+
+/* Clear floats after the columns */
+.thumb-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+.gallery-big-img {
+  position: relative;
+   animation-delay: 2s;
+}
+
+#expandedImg {
+  display: block;
+  width: 516px;
+}

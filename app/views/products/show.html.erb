@@ -1,13 +1,42 @@
-<% if @product.photo.attached? %>
-    <div class="banner d-flex" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path @product.photo.key %> ');">
-<% else %>
-    <div class="banner" style="background:red">
-<% end %>
-  <div class="container">
-    <h1 id= banner-text-typedjs></h1>
+
+<div class="container">
+
+ <h1 style="margin-top: 16px;">Product Detail Page</h1>
+ <div class="product-wrapper">
+  <div class="gallery">
+
+    <div class="thumb-row">
+      <div class="column">
+        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" alt="Cherry">
+      </div>
+      <div class="column">
+        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" alt="Cherry" >
+      </div>
+      <div class="column">
+        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" alt="Cherry">
+      </div>
+      <div class="column">
+        <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80" alt="Cherry">
+      </div>
+    </div>
+
+    <!-- The expanding image container -->
+    <div class="gallery-big-img">
+      <!-- Expanded image -->
+      <img id="expandedImg" src="https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80">
+    </div>
+
+  </div>
+  <div class="card-info">
+    <h3><%=@product.name%></h3>
+    <h4><%= @product.user.email %></h4>
+    <p class= "desc-text"><%= @product.description %></p>
+    <p class= "desc-text">Recyclebale packaging will be prepared before pick up.</p>
+    <p class="price">Price: <%= @product.price %> €</p>
+    <button class="btn-main"><%= link_to "Order", "/products/#{@product.id}/orders/new" %></button>
+    <button class="btn-main"><%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %></button>
   </div>
 </div>
-<div class=ml-5>
-<h1><%=@product.name%></h1>
-<%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %> 
 </div>
+
+

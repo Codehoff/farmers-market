@@ -4,21 +4,21 @@
     <title>FarmersMarket</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
-
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
-
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload', defer: true %>
   </head>
 
   <body>
-    
+
     <%= render 'shared/navbar' %>
-    
+
     <%= yield %>
-    
-    <p class="notice"><%= notice %></p>
-    <p class="alert"><%= alert %></p>
+
+<!--     <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p> -->
     <%= render 'shared/footer'%>
   </body>
 </html>
