@@ -21,11 +21,11 @@ class OrdersController < ApplicationController
       @order.user = current_user
      
       if @order.save
-          redirect_to product_path(@product)
+          redirect_to "/orders"
       else
           render :new
       end
-      raise
+      
     end
   
     private
