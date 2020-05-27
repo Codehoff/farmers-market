@@ -10,7 +10,16 @@
 <div class=ml-5>
 <h1><%=@product.name%></h1>
 <%= link_to "Order", "/products/#{@product.id}/orders/new" %>
+<%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %>
+
 <%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %> 
 </div>
+<h2 class=ml-5>Reviews:</h2>
+ <ul class=ml-5 style="list-style: none">
+ <% @product.reviews.each do |review| %>
+  <li><h5> <%= "#{review.content}" %> </h5> </li>
+  <%end%>
+</ul>
+
 
 
