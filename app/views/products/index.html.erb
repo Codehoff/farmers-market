@@ -1,5 +1,27 @@
-<h1>Products</h1>
+   <div class="container">
+    <h1 style="margin:16px;">All Products</h1>
+    <div class="product-wrapper">
+      <div class="card-row">
+        <% @products.each do |product | %>
+        <div class="big-card"> <%= link_to "products/#{product.id}" do %>
+          <div class="card-img"></div>
+          <div class="card-info">
+           <h3> <%= product.name %></h3>
 
+           <h4> <%= product.user.email %> </h4>
+           <p class= "desc-text"> <%= product.description %></p>
+           <p class="price" data-hover="Add to cart">Price: <%= product.price %> € </p>
+         </div>
+       </div>
+       <% end %>
+       <% end %>
+     </div>
+   </div>
+ </div>
+
+
+
+<<<<<<< HEAD
   <div class="cards">
     <% @products.each do |product| %>
       <%= link_to "products/#{product.id}" do %>
@@ -15,3 +37,5 @@
       <% end %> 
     <% end %>
   </div>
+=======
+>>>>>>> 2793722a8a596b08cca26e1045abf1e57063d192
