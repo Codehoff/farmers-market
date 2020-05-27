@@ -6,6 +6,12 @@
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
 Product.destroy_all
+Review.destroy_all
+Order.destroy_all
+Category.destroy_all
 
-Product.create(name: "Asparagus", description: "Fresh green asparagus", price: "10€", stock_info: 200, unit: "kg", user_id: 1, category: "edible plant stem")
-Product.create(name: "Potatoes", description: "Super duper potatoes", price: "2€", stock_info: 1000, unit: "kg", user_id: 1, category: "root")
+categories =  ["Leafy green", "Cruciferous", "Marrow", "Root", "Edible plant stem", "Allium"]
+
+categories.each do |categorie|
+    Category.create(name: categorie )
+end

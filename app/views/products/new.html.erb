@@ -2,7 +2,7 @@
     <div class="container mt-5"> <%= simple_form_for [ @product ] do |f| %>
         <%= f.input :name%>
         <%= f.input :description%>
-        <%= f.input :category%>
+        <%= f.association :category %>
         <%= f.input :unit%>
         <%= f.input :stock_info, label: "In stock"%>
         <%= f.input :price%>
