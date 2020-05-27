@@ -4,10 +4,10 @@
         <%= f.input :description%>
         <%= f.input :category%>
         <%= f.input :unit%>
-        <%= f.input :stock_info, label: "In stock"%>
-        <%= f.input :price%>
+        <%= f.input :stock_info, label: "In stock", input_html: { min: 0 } %>
+        <%= f.input :price %>
         <%= f.input :photo%>
-        <%= f.submit "Submit review", class: "btn btn-primary" %>
+        <%= f.submit "Submit Listing", class: "btn btn-primary" %>
     <% end %>
     </div>
 </div>
