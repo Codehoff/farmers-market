@@ -2,8 +2,14 @@
 
   <div class="cards">
     <% @orders.each do |order| %>
-        <%= order.product.name %>
+     <h2> <%=  order.product.name %> </h2>
+      <ol>
+        <li> your quantity: <%=  order.quantity %> </li>
+        <li> <%=  order.product.description %> </li>
+      </ol>
     <% end %>
   </div>
 
-<!-- link_to root_path -->
+<%= link_to "back to front page", "/", {:class => "btn-outline-secondary ml-2"} %>
+
+
