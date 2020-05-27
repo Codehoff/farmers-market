@@ -34,18 +34,9 @@
     <p class= "desc-text">Recyclebale packaging will be prepared before pick up.</p>
     <p class="price">Price: <%= @product.price %> €</p>
     <button class="btn-main"><%= link_to "Order", "/products/#{@product.id}/orders/new" %></button>
-    <button class="btn-main"><%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %></button>
+    <button class="btn-main"><%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %></button>
   </div>
 </div>
-<<<<<<< HEAD
-<div class=ml-5>
-<h1><%=@product.name%></h1>
-<%= link_to "Order", "/products/#{@product.id}/orders/new" %>
-<%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %>
-
-<%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "} %> 
-=======
->>>>>>> 2793722a8a596b08cca26e1045abf1e57063d192
 </div>
 <h2 class=ml-5>Reviews:</h2>
  <ul class=ml-5 style="list-style: none">

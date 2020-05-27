@@ -1,21 +1,13 @@
 <div class=wrapper>
-<<<<<<< HEAD
     <div class="container mt-5"> 
     <%= simple_form_for [ @product ] do |f| %>
-=======
-    <div class="container mt-5"> <%= simple_form_for [ @product ] do |f| %>
->>>>>>> 2793722a8a596b08cca26e1045abf1e57063d192
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.association :category %>
         <%= f.input :unit %>
         <%= f.input :stock_info, label: "In stock", input_html: { min: 0 } %>
         <%= f.input :price %>
-<<<<<<< HEAD
         <%= f.input :photo, as: :file %>
-=======
-        <%= f.input :photo %>
->>>>>>> 2793722a8a596b08cca26e1045abf1e57063d192
         <%= f.submit "Submit Listing", class: "btn btn-primary" %>
     <% end %>
   </div>
