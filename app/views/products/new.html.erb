@@ -1,14 +1,5 @@
 <div class=wrapper>
-    <h1>Add your own product</h1>
-    <div class="container mt-5"><%= simple_form_for [ @product ],
-
-        wrapper: :floating_labels_form,
-        wrapper_mappings: {
-        select:        :floating_labels_select
-        } do |f| %>
-
-        <%= f.error_notification %>
-
+    <div class="container mt-5"> <%= simple_form_for [ @product ] do |f| %>
         <%= f.input :name%>
         <%= f.input :description%>
         <%= f.input :category%>
@@ -16,10 +7,7 @@
         <%= f.input :stock_info, label: "In stock"%>
         <%= f.input :price%>
         <%= f.input :photo%>
-
-        <%= f.button :submit, class: "btn-success" %>
-        <%= f.button :button, "Cancel", type: "reset", class: "btn-outline-secondary"%>
-        <%= link_to "back to front page", :back, {:class => "btn-outline-secondary ml-2"} %>
+        <%= f.submit "Submit review", class: "btn btn-primary" %>
     <% end %>
     </div>
 </div>
