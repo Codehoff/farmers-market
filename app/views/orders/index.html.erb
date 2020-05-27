@@ -1,15 +1,20 @@
-<h1>Products</h1>
 
+<h1>Products</h1>
+<body>
   <div class="cards">
     <% @orders.each do |order| %>
-     <h2> <%=  order.product.name %> </h2>
-      <ol>
-        <li> your quantity: <%=  order.quantity %> </li>
-        <li> <%=  order.product.description %> </li>
-      </ol>
+        <h3> <%= "Your order number is: #{order.id}" %> </h3>
+    <p> <%=  "Your order contains the following:" %> </p>
+    <ul>
+      <li> <%= "#{order.product.name}" %> </li>
+      <li> <%= "Quantity: #{order.quantity}" %> </li>
+      <li> <%= "Product description: #{order.product.description}" %> </li>
+    </ul>
     <% end %>
   </div>
-
-<%= link_to "back to front page", "/", {:class => "btn-outline-secondary ml-2"} %>
-
+  <div>
+    Thank you for ordering at the Farmers market.
+    <%= link_to "back to front page", "/", {:class => "btn-outline-secondary ml-2"} %>
+  </div>
+</body>
 
