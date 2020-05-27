@@ -8,5 +8,7 @@ class Product < ApplicationRecord
     validates :price, presence: true
     validates :category, presence: true
     validates :stock_info, presence: true
+    validates :stock_info, inclusion: { in: (0..100000000), 
+        message: "can not be negative" }
     validates :unit, presence: true
 end
