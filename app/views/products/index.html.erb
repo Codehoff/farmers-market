@@ -1,17 +1,23 @@
-<h1>Products</h1>
+   <div class="container">
+    <h1 style="margin:16px;">All Products</h1>
+    <div class="product-wrapper">
+      <div class="card-row">
+        <% @products.each do |product | %>
+        <div class="big-card"> <%= link_to "products/#{product.id}" do %>
+          <div class="card-img"></div>
+          <div class="card-info">
+           <h3> <%= product.name %></h3>
 
-  <div class="cards">
-    <% @products.each do |product| %>
-      <%= link_to "products/#{product.id}" do %>
-        <% if product.photo.attached? %>
-          <div class="card-trip" style="background-image: linear-gradient(rgba(0,0,0,0.4),rgba(0,0,0,0.4)), url('<%= cl_image_path product.photo.key %>');">
-        <% else %>
-           <div class="card-trip">
-        <% end %>
-          <div class="container">
-            <h2><%= product.name %></h2>
-          </div>
-        </div>
-      <% end %> 
-    <%end%>
-  </div>
+           <h4> <%= product.user.email %> </h4>
+           <p class= "desc-text"> <%= product.description %></p>
+           <p class="price" data-hover="Add to cart">Price: <%= product.price %> € </p>
+         </div>
+       </div>
+       <% end %>
+       <% end %>
+     </div>
+   </div>
+ </div>
+
+
+

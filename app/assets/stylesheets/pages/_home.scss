@@ -1,1 +1,125 @@
 // Specific CSS for your home-page
+a {
+  color:white;
+}
+
+.container {
+  padding-bottom: 2.5rem !important;
+}
+
+#page-container {
+  position: relative;
+  min-height: 100vh;
+}
+
+.hero-header {
+  width: 45%;
+
+}
+
+a:hover, a:focus {
+  text-decoration:none;
+  color:white;
+}
+
+.light-a {
+  color:black;
+}
+
+.light-a:hover {
+  color:black;
+}
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 46px;
+  line-height: 46px;
+  color: #232323;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 46px;
+  color: #232323;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(35, 35, 35, 0.5);
+  margin:0;
+}
+
+.big-card {
+ width: 300px;
+ background-color: rgba(253, 235, 227, 0.5);
+/* background-color: #F3ECDD;*/
+ display: inline-block;
+ overflow: hidden;
+}
+
+.card-img {
+  width: 100%;
+  height: 194px;
+  background-color: black; /* fallback color */
+  background-image: url("img/Cabbage.png");
+  background-position: center;
+  background-size: cover;
+  vertical-align: middle;
+  transition: all .5s;
+}
+
+.card-info {
+  padding: 0 24px 24px;
+  font-family: 'Roboto', sans-serif;
+}
+
+.card-info h3 {
+  font-size: 20px;
+  font-weight: 400;
+  color: #232323;
+  margin: 16px 0 4px 0;
+}
+
+.desc-text {
+  font-size: 14px;
+  font-weight: 400;
+  color: rgba(16, 16, 16, 0.6);
+}
+
+.price {
+  font-family: 'Roboto', sans-serif;
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  transition: 0.3s;
+  margin-top: 4px;
+
+}
+
+.big-card .price {
+  width: 120px;
+}
+
+.big-card .price:hover {
+  color: rgba(250, 219, 206, 0.1);
+  font-size: 0;
+
+}
+
+.big-card .price:hover:after {
+  content: attr(data-hover);
+  font-size: 14px;
+  font-weight: 600;
+  color: #333333;
+  text-decoration: underline solid #FBDBCE;
+}
