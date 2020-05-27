@@ -1,20 +1,23 @@
 
 <h1>Products</h1>
 <body>
-  <div class="cards">
+  <div class="container">
     <% @orders.each do |order| %>
-        <h3> <%= "Your order number is: #{order.id}" %> </h3>
-    <p> <%=  "Your order contains the following:" %> </p>
-    <ul>
-      <li> <%= "#{order.product.name}" %> </li>
-      <li> <%= "Quantity: #{order.quantity}" %> </li>
-      <li> <%= "Product description: #{order.product.description}" %> </li>
-    </ul>
+      <%if current_user.id == order.user.id%>
+        <h3> <%= "Order id: #{order.id}" %> </h3>
+        <p> <%=  "Your order contains the following:" %> </p>
+        <ul style="list-style: none">
+          <li><h3> <%= "#{order.product.name}" %> </h3> </li>
+          <li> <strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
+          <li> <strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
+        </ul>
+      <%end%>
+    
     <% end %>
   </div>
   <div>
     Thank you for ordering at the Farmers market.
-    <%= link_to "back to front page", "/", {:class => "btn-outline-secondary ml-2"} %>
+    <%= link_to "back to front page", "/products", {:class => "btn-outline-secondary ml-2"} %>
   </div>
 </body>
 
