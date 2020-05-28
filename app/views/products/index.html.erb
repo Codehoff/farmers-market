@@ -14,9 +14,7 @@
         <div class="big-card"> <%= link_to "products/#{product.id}" do %>
           <div class="card-img">
            <img src="<%= cl_image_path product.photos.first.key %>">
-          <!-- <%= cl_image_path product.photos.first.key %> -->
           </div>
-
           <div class="card-info">
            <h3> <%= product.name %></h3>
 
@@ -27,7 +25,7 @@
             <p class= "btn btn-primary">
               <%= link_to 'Edit', edit_product_path(product) %>
                  <% end %>
-<!-- if product.stock >= 0 than display -->
+
               <% if policy(product).destroy?  %>
               <p class= "btn btn-primary">
               <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure you want to delete your product?' }%>
