@@ -25,7 +25,7 @@ class ProductsController < ApplicationController
 
   def edit
   end
-  
+
   def update
     @product.update(product_params)
     redirect_to "/products"
@@ -43,6 +43,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock_info, :category_id, :unit, :photo)
+    params.require(:product).permit(:name, :description, :price, :stock_info, :category_id, :unit, photos: [])
   end
 end

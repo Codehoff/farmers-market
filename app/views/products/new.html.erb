@@ -6,7 +6,7 @@
         <%= f.input :unit %>
         <%= f.input :stock_info, label: "In stock", input_html: { min: 0 } %>
         <%= f.input :price %>
-        <%= f.input :photo %>
+        <%= f.input :photos, as: :file, input_html: { multiple: true } %>
         <%= f.submit "Submit Listing", class: "btn btn-primary" %>
     <% end %>
   </div>
