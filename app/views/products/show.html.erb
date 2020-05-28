@@ -1,4 +1,4 @@
-
+<%raise%>
 <div class="container">
 
  <h1 style="margin-top: 16px;">Product Detail Page</h1>
@@ -49,17 +49,11 @@
 
         <%= simple_form_for([@product, @order]) do |f| %>
         <p>Enter the quantity you want to add:</p>
-        <%= f.input :quantity %>
+        <%= f.input :quantity, input_html: { max: @product.stock_info } %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
-
-
-
-
-
-
     <button class="btn-main"><%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %></button>
 
   </div>
@@ -77,3 +71,7 @@
 
 
 
+
+<%if product.stock >= 0%>
+
+<%end%>
