@@ -1,10 +1,10 @@
 <body>
   <br>
-  <br>
   <div class="container-orders ml-5">
     <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
       <h1 style=color:white>Your Orders:</h1>
     </div>
+    <br>
     <div class="container-suborders ml-5">
       <%if @orders.where(user_id: current_user.id) == []%>
         <br>
@@ -15,22 +15,25 @@
       <%else%>                                  
         <% @orders.each do |order| %>
           <%if current_user.id == order.user.id%>
-            <h3> <%= "Order id: #{order.id}" %> </h3>
-            <p> <%=  "Your order contains the following:" %> </p>
+            <h3 class=text-dark> <%= "#{order.product.name}" %> </h3>
+            <p> <%=  "Order contains:" %> </p>
             <ul style="list-style: none">
-              <li><h3> <%= "#{order.product.name}" %> </h3> </li>
+              <li><strong>Order id:</strong> <%= "#{order.id}" %> </h3> </li>
               <li><strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
-              <li><strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
+              <li><strong>Description: </strong> <%= "#{order.product.description}" %> </li>
             </ul>
           <%end%>
         <% end %>
       <%end%>
     </div>
+    <br>
     <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
       <h1 style=color:white;>Your listings:</h1>
     </div>
+    <br>
     <div class="container-suborders ml-5">
       <%if Product.where(user_id: current_user.id) == []%>
+        <br>
         <br>
         <%="You have no active listings. Add a listing here:"%><%= link_to "/products/new", {:class => "btn-outline-secondary ml-2"} do  %><button class=btn-main>Add listing</button><%end%>
         <br>
@@ -39,29 +42,32 @@
       <%else%>
         <% Product.all.each do |product| %>
           <%if current_user.id == product.user_id%>
-            <h3> <%= "Order id: #{product.id}" %> </h3>
-            <p> <%=  "Your order contains the following:" %> </p>
+            <h3 style="color:black"><%= link_to "#{product.name}", "/products/#{product.id}", {:class => "text-dark btn-light p-3 rounded-pill"} %></h3>
+            <br>
             <ul style="list-style: none">
-              <li><h3> <%= "#{product.name}" %> </h3> </li>
-              <li><strong>Amount: </strong><%= "#{product.stock_info}" %> </li>
-              <li><strong>Product description: </strong> <%= "#{product.description}" %> </li>
+              <li><h3>  </h3> </li>
+              <li><strong>In stock: </strong><%= "#{product.stock_info}#{product.unit}" %> </li>
+              <li><strong>Description: </strong> <%= "#{product.description}" %> </li>
             </ul>
           <%end%>
         <% end %>
       <%end%>
     </div>
+    <br>
     <div>
       <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
         <h1 style=color:white>Sold offers:</h1>
       </div>
+      <br>
       <div class="container-suborders ml-5">
         <% @orders.each do |order| %>
           <%if current_user.id == order.product.user.id%>
-            <h3> <%= "Order id: #{order.id}" %> </h3>
+            <h3 class="text-dark"> <%= "#{order.product.name}" %></h3>
+            <p> <%=  "Order contains:" %> </p>
             <ul style="list-style: none">
-              <li><h3> <%= "#{order.product.name}" %> </h3> </li>
+              <li> <strong>Order id: </strong> <%="#{order.id}" %> </li>
               <li> <strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
-              <li> <strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
+              <li> <strong>Description: </strong> <%= "#{order.product.description}" %> </li>
             </ul>
           <%end%>
         <% end %>
