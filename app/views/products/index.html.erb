@@ -9,7 +9,7 @@
            <h3> <%= product.name %></h3>
 
            <h4> <%= product.user.email %> </h4>
-           <p class= "desc-text"> <%= product.description %></p>
+           <p class= "desc-text"> <%= truncate(product.description, length: 60) %></p>
            <p class="price" data-hover="Add to cart">Price: <%= product.price %> € </p>
          </div>
        </div>
