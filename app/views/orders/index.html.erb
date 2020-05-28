@@ -1,44 +1,93 @@
-
-<h1>Your Orders:</h1>
-
-  <div class="container">
-    <div class="product-wrapper">
-
-    <% @orders.each do |order| %>
-      <%if current_user.id == order.user.id%>
-        <h3> <%= "Order id: #{order.id}" %> </h3>
-        <p> <%=  "Your order contains the following:" %> </p>
-        <ul style="list-style: none">
-          <li><h3> <%= "#{order.product.name}" %> </h3> </li>
-          <li> <strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
-          <li> <strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
-        </ul>
+<body>
+  <br>
+  <br>
+  <div class="container-orders ml-5">
+    <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
+      <h1 style=color:white>Your Orders:</h1>
+    </div>
+    <div class="container-suborders ml-5">
+      <%if @orders.where(user_id: current_user.id) == []%>
+        <br>
+        <%="Seems like haven't placed any orders yet. Browse our products to make a new purchase:"%><%= link_to "/products", {:class => "btn-outline-secondary ml-2"} do  %><button class=btn-main>Browse</button><%end%>
+        <br>
+        <br>
+        <br>
+      <%else%>                                  
+        <% @orders.each do |order| %>
+          <%if current_user.id == order.user.id%>
+            <h3> <%= "Order id: #{order.id}" %> </h3>
+            <p> <%=  "Your order contains the following:" %> </p>
+            <ul style="list-style: none">
+              <li><h3> <%= "#{order.product.name}" %> </h3> </li>
+              <li><strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
+              <li><strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
+            </ul>
+          <%end%>
+        <% end %>
       <%end%>
-
-    <% end %>
-<h1>Your Offers:</h1>
-      <% @orders.each do |order| %>
-      <%if current_user.id == order.product.user.id%>
-                <ul style="list-style: none">
-          <li><h3> <%= "#{order.product.name}" %> </h3> </li>
-          <li> <strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
-          <li> <strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
-        </ul>
+    </div>
+    <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
+      <h1 style=color:white;>Your listings:</h1>
+    </div>
+    <div class="container-suborders ml-5">
+      <%if Product.where(user_id: current_user.id) == []%>
+        <br>
+        <%="You have no active listings. Add a listing here:"%><%= link_to "/products/new", {:class => "btn-outline-secondary ml-2"} do  %><button class=btn-main>Add listing</button><%end%>
+        <br>
+        <br>
+        <br>
+      <%else%>
+        <% Product.all.each do |product| %>
+          <%if current_user.id == product.user_id%>
+            <h3> <%= "Order id: #{product.id}" %> </h3>
+            <p> <%=  "Your order contains the following:" %> </p>
+            <ul style="list-style: none">
+              <li><h3> <%= "#{product.name}" %> </h3> </li>
+              <li><strong>Amount: </strong><%= "#{product.stock_info}" %> </li>
+              <li><strong>Product description: </strong> <%= "#{product.description}" %> </li>
+            </ul>
+          <%end%>
+        <% end %>
       <%end%>
-    
-    <% end %>
-  </div>
-  <div>
-    Thank you for ordering at the Farmers market.
-    <%= link_to "back to front page", "/products", {:class => "btn-outline-secondary ml-2"} %>
+    </div>
+    <div>
+      <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
+        <h1 style=color:white>Sold offers:</h1>
+      </div>
+      <div class="container-suborders ml-5">
+        <% @orders.each do |order| %>
+          <%if current_user.id == order.product.user.id%>
+            <h3> <%= "Order id: #{order.id}" %> </h3>
+            <ul style="list-style: none">
+              <li><h3> <%= "#{order.product.name}" %> </h3> </li>
+              <li> <strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
+              <li> <strong>Product description: </strong> <%= "#{order.product.description}" %> </li>
+            </ul>
+          <%end%>
+        <% end %>
+      </div>
+    </div>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+
+    <div>
+      Thank you for using Farmer's market.
+      <%= link_to "back to front page", "/products", {:class => "btn-outline-secondary ml-2"} %>
     </div>
   </div>
-  </div>
 
 
-  <div>
-    Thank you for ordering at the Farmers market.
-    <%= link_to "back to front page", "/products", {:class => "btn-outline-secondary ml-2"} %>
-  </div>
 </body>
 
