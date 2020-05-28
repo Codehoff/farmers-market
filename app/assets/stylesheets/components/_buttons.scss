@@ -6,13 +6,14 @@
   padding:16px 80px;
   transition: 0.2s;
   border:none;
+  margin-right: 8px;
 }
 
 .btn-big:hover {
   color: white;
   font-size: 16px;
   font-weight: 300;
-  background-color: rgba(54, 125, 125, 1);
+  background-color: #439795;
   padding:16px 80px;
 }
 
@@ -34,19 +35,19 @@
 }
 
 .btn-big-2 {
-  color: black;
+  color: white;
   font-size: 16px;
   font-weight: 300;
-  background-color: #FBDBCE;
+  background-color: #797336;
   padding:16px 80px;
   transition: 0.2s;
   border:none;
 }
 
 .btn-big-2:hover {
-  color: black;
+  color: white;
   font-size: 16px;
   font-weight: 300;
-  background-color: #FDE9E1;
+  background-color: #9B9344;
   padding:16px 80px;
 }
