@@ -22,14 +22,14 @@ class OrdersController < ApplicationController
       unless @product.buyers.include? @order.user.id.to_i
         @product.buyers << @order.user.id.to_i
       end
-     
+
       if @order.save
          @product.save
           redirect_to "/orders"
       else
           render :new
       end
-      
+
     end
 
     def destroy
