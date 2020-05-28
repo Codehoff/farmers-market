@@ -4,6 +4,9 @@
       <div class="card-row">
         <% @products.each do |product | %>
         <div class="big-card"> <%= link_to "products/#{product.id}" do %>
+
+<!-- add it here "if stock >= 0 display" -->
+
           <div class="card-img"></div>
           <div class="card-info">
            <h3> <%= product.name %></h3>
@@ -11,6 +14,16 @@
            <h4> <%= product.user.email %> </h4>
            <p class= "desc-text"> <%= truncate(product.description, length: 60) %></p>
            <p class="price" data-hover="Add to cart">Price: <%= product.price %> € </p>
+              <% if policy(product).edit?  %>
+            <p class= "btn btn-primary">
+              <%= link_to 'Edit', edit_product_path(product) %>
+                 <% end %>
+<!-- if product.stock >= 0 than display -->
+              <% if policy(product).destroy?  %>
+              <p class= "btn btn-primary">
+              <%= link_to 'Destroy', product, method: :delete, data: {confirm: 'Are you sure you want to delete your product?' }%>
+              <% end %>
+            </p>
          </div>
        </div>
        <% end %>
