@@ -1,5 +1,6 @@
 <div class=wrapper>
-    <div class="container mt-5"> <%= simple_form_for [ @product ] do |f| %>
+    <div class="container mt-5"> 
+    <%= simple_form_for [ @product ] do |f| %>
         <%= f.input :name %>
         <%= f.input :description %>
         <%= f.association :category %>

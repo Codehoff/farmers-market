@@ -19,8 +19,12 @@ class OrdersController < ApplicationController
       @order = Order.new(order_params)
       @order.product = @product
       @order.user = current_user
-
+      unless @product.buyers.include? @order.user.id.to_i
+        @product.buyers << @order.user.id.to_i
+      end
+     
       if @order.save
+         @product.save
           redirect_to "/orders"
       else
           render :new
