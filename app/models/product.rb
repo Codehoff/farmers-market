@@ -11,4 +11,5 @@ class Product < ApplicationRecord
     validates :stock_info, inclusion: { in: (0..100000000), 
         message: "can not be negative" }
     validates :unit, presence: true
+    serialize :buyer, Array
 end
