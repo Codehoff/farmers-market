@@ -6,6 +6,4 @@ Rails.application.routes.draw do
     resources :reviews, only: [:new, :create]
   end
   resources :orders, only: [:destroy, :index]
-
-  #shall we also allow for a :destroy resource with orders??
 end

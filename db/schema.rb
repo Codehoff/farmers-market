@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.text "quantity"
+    t.integer "quantity"
     t.integer "price_per_unit"
     t.integer "total_price"
     t.bigint "user_id"
@@ -57,10 +57,11 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.string "price"
+    t.integer "price"
     t.string "description"
     t.integer "stock_info"
     t.string "unit"
+    t.integer "buyers", default: [], array: true
     t.bigint "user_id"
     t.bigint "reviews_id"
     t.bigint "category_id"

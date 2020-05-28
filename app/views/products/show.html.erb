@@ -43,11 +43,22 @@
 
     <p>Available Amount: <%= @product.stock_info%> </p>
 
-    <form action="/orders" data-remote="true" method="post">
-    <label for="quantity">Quantity:</label>
-    <input type="number" id="quantity" name="quantity" min="1" max="<%=@product.stock_info%>" >
-    <input type="submit" class="btn-main" value="Order">
-    </form>
+    <div class="container">
+      <h1>Add a new Order</h1>
+      <div class="product-wrapper">
+
+        <%= simple_form_for([@product, @order]) do |f| %>
+        <p>Enter the quantity you want to add:</p>
+        <%= f.input :quantity %>
+        <%= f.button :submit, class: "btn btn-primary" %>
+        <% end %>
+      </div>
+    </div>
+
+
+
+
+
 
     <button class="btn-main"><%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %></button>
 
