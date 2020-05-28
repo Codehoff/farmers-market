@@ -14,7 +14,7 @@ class ProductsController < ApplicationController
       "
       @products = Product.joins(:category).where(sql_query, query: "%#{params[:query]}%")
     else
-      @products = Product.all
+      @products = policy_scope(Product).order(created_at: :asc)
     end
   end
 
@@ -25,11 +25,13 @@ class ProductsController < ApplicationController
 
   def new
     @product = Product.new
+    authorize @product
   end
 
   def create
     @product = Product.new(product_params)
     @product.user_id = current_user.id
+    authorize @product
 
     if @product.save
       redirect_to "/products", notice: 'Product was successfully created.'
@@ -43,18 +45,19 @@ class ProductsController < ApplicationController
 
   def update
     @product.update(product_params)
-    redirect_to "/products"
+    redirect_to "/products", notice: 'Product was successfully updated.'
   end
 
   def destroy
     @product.destroy
-    redirect_to "/products"
+    redirect_to "/products", notice: 'Product was successfully destroyed.'
   end
 
   private
 
   def set_product
     @product = Product.find(params[:id])
+    authorize @product
   end
 
   def product_params
