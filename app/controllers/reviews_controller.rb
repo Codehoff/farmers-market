@@ -23,7 +23,11 @@ class ReviewsController < ApplicationController
       @product = Product.find(params[:product_id])
       @review = Review.new(review_params)
       @review.product = @product
+
       authorize @review
+
+      @review.user_id = current_user.id  
+
       if @review.save
           redirect_to product_path(@product)
       else

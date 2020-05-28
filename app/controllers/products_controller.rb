@@ -6,11 +6,21 @@ class ProductsController < ApplicationController
   # end
 
   def index
-    # @products = Product.all
-    @products = policy_scope(Product).order(created_at: :asc)
+    if params[:query].present?
+      sql_query = " \
+        products.name ILIKE :query \
+        OR products.description ILIKE :query \
+        OR categories.name ILIKE :query \
+      "
+      @products = Product.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @products = policy_scope(Product).order(created_at: :asc)
+    end
   end
 
   def show
+    @order = Order.new
+    @product = Product.find(params[:id])
   end
 
   def new
@@ -51,6 +61,6 @@ class ProductsController < ApplicationController
   end
 
   def product_params
-    params.require(:product).permit(:name, :description, :price, :stock_info, :category_id, :unit, :photo)
+    params.require(:product).permit(:name, :description, :price, :stock_info, :category_id, :unit, photos: [])
   end
 end

@@ -43,7 +43,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
   end
 
   create_table "orders", force: :cascade do |t|
-    t.text "quantity"
+    t.integer "quantity"
     t.integer "price_per_unit"
     t.integer "total_price"
     t.bigint "user_id"
@@ -57,7 +57,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
   create_table "products", force: :cascade do |t|
     t.string "name"
     t.string "category"
-    t.string "price"
+    t.integer "price"
     t.string "description"
     t.integer "stock_info"
     t.string "unit"
@@ -75,21 +75,33 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
   create_table "reviews", force: :cascade do |t|
     t.text "content"
     t.integer "rating"
+    t.bigint "user_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.bigint "product_id", null: false
     t.index ["product_id"], name: "index_reviews_on_product_id"
+    t.index ["user_id"], name: "index_reviews_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
+    t.string "first_name", default: "", null: false
+    t.string "last_name", default: "", null: false
+    t.string "address", default: "", null: false
+    t.string "postal_code", default: "", null: false
+    t.string "city", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.index ["address"], name: "index_users_on_address"
+    t.index ["city"], name: "index_users_on_city"
     t.index ["email"], name: "index_users_on_email", unique: true
+    t.index ["first_name"], name: "index_users_on_first_name"
+    t.index ["last_name"], name: "index_users_on_last_name"
+    t.index ["postal_code"], name: "index_users_on_postal_code"
     t.index ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
   end
 
@@ -100,4 +112,5 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
   add_foreign_key "products", "reviews", column: "reviews_id"
   add_foreign_key "products", "users"
   add_foreign_key "reviews", "products"
+  add_foreign_key "reviews", "users"
 end

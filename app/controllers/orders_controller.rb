@@ -38,12 +38,17 @@ class OrdersController < ApplicationController
 
     def destroy
       authorize @order
-    end
 
-    private
-
-    def order_params
-      params.require(:order).permit(:quantity)
     end
+  end
+
+  def destroy
+  end
+
+  private
+
+  def order_params
+    params.require(:order).permit(:quantity)
+  end
 end
 

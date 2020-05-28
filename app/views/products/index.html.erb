@@ -1,13 +1,22 @@
    <div class="container">
+    <%= form_tag products_path, method: :get do %>
+    <%= text_field_tag :query,
+    params[:query],
+    class: "form-control",
+      placeholder: "Look for a product"
+      %>
+      <%= submit_tag "Search", class: "btn btn-primary" %>
+      <% end %>
     <h1 style="margin:16px;">All Products</h1>
     <div class="product-wrapper">
       <div class="card-row">
         <% @products.each do |product | %>
         <div class="big-card"> <%= link_to "products/#{product.id}" do %>
+          <div class="card-img">
+           <img src="<%= cl_image_path product.photos.first.key %>">
+          <!-- <%= cl_image_path product.photos.first.key %> -->
+          </div>
 
-<!-- add it here "if stock >= 0 display" -->
-
-          <div class="card-img"></div>
           <div class="card-info">
            <h3> <%= product.name %></h3>
 

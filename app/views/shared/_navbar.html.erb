@@ -12,10 +12,7 @@
     <ul class="navbar-nav mr-auto">
       <% if user_signed_in? %>
       <li class="nav-item active">
-        <%= link_to "Home", "/", class: "nav-link" %>
-      </li>
-      <li class="nav-item">
-        <%= link_to "Messages", "#", class: "nav-link" %>
+        <%= link_to "Products", "/products", class: "nav-link" %>
       </li>
       <li class="nav-item">
         <%= "User: #{current_user.email}" %>
@@ -24,12 +21,15 @@
         <%= image_tag "https://envato-shoebox-0.imgix.net/d758/4303-6568-4778-9d91-de421163e388/Asparagus-13+copy.jpg?auto=compress%2Cformat&fit=max&mark=https%3A%2F%2Felements-assets.envato.com%2Fstatic%2Fwatermark2.png&markalign=center%2Cmiddle&markalpha=18&w=500&s=c050a58498886415f5cb99cf7fec0b3b", class: "avatar dropdown-toggle", id: "navbarDropdown", data: { toggle: "dropdown" }, 'aria-haspopup': true, 'aria-expanded': false %>
         <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
           <%= link_to "Inbox", "#", class: "dropdown-item" %>
-          <%= link_to "Your orders", "/orders", class: "dropdown-item" %>
+          <%= link_to "Dashboard", "/orders", class: "dropdown-item" %>
           <%= link_to "Add listing", "/products/new", class: "dropdown-item" %>
           <%= link_to "Log out", destroy_user_session_path, method: :delete, class: "dropdown-item" %>
         </div>
       </li>
       <% else %>
+      <li class="nav-item active">
+        <%= link_to "Products", "/products", class: "nav-link" %>
+      </li>
       <li class="nav-item">
         <%= link_to "Login", new_user_session_path, class: "nav-link" %>
       </li>

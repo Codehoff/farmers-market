@@ -3,7 +3,7 @@ class Product < ApplicationRecord
     has_many :reviews, dependent: :destroy
     belongs_to :category
     belongs_to :user
-    has_one_attached :photo
+    has_many_attached :photos
     validates :name, presence: true
     validates :description, presence: true
     validates :price, presence: true
