@@ -5,10 +5,13 @@
 #
 #   movies = Movie.create([{ name: 'Star Wars' }, { name: 'Lord of the Rings' }])
 #   Character.create(name: 'Luke', movie: movies.first)
-Product.destroy_all
-Review.destroy_all
-Order.destroy_all
 Category.destroy_all
+Order.destroy_all
+Review.destroy_all
+Product.destroy_all
+
+
+
 
 categories =  ["Leafy green", "Cruciferous", "Marrow", "Root", "Edible plant stem", "Allium"]
 
