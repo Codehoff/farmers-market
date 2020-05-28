@@ -33,10 +33,18 @@
     <p class= "desc-text"><%= @product.description %></p>
     <p class= "desc-text">Recyclebale packaging will be prepared before pick up.</p>
     <p class="price">Price: <%= @product.price %> €</p>
-    <p> <%= link_to "Order", "/products/#{@product.id}/orders/new", class:"btn-main" %></p>
-    <p><%= link_to "Delete this product", product_path(@product), method: :delete, data: { confirm: "Are you sure? "}, class:"btn-main" %></p>
+    <button class="btn-main"><%= link_to "Order", "/products/#{@product.id}/orders/new" %></button>
+    <button class="btn-main"><%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %></button>
+
   </div>
 </div>
 </div>
+<h2 class=ml-5>Reviews:</h2>
+ <ul class=ml-5 style="list-style: none">
+ <% @product.reviews.each do |review| %>
+  <li><h5> <%= "#{review.content}" %> </h5> </li>
+  <%end%>
+</ul>
+
 
 

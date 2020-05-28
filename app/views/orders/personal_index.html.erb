@@ -1,0 +1,15 @@
+<h1>Your Offers:</h1>
+<body>
+  <div class="container">
+    <% @orders.each do |order| %>
+      <%if current_user.id == order.product.user.id%>
+        <h1>YESSS</h1>
+      <%end%>
+    
+    <% end %>
+  </div>
+  <div>
+    Thank you for ordering at the Farmers market.
+    <%= link_to "back to front page", "/products", {:class => "btn-outline-secondary ml-2"} %>
+  </div>
+</body>

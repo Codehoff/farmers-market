@@ -1,6 +1,6 @@
 class Product < ApplicationRecord
     has_many :orders
-    has_many :reviews
+    has_many :reviews, dependent: :destroy
     belongs_to :category
     belongs_to :user
     has_one_attached :photo
@@ -11,4 +11,5 @@ class Product < ApplicationRecord
     validates :stock_info, inclusion: { in: (0..100000000), 
         message: "can not be negative" }
     validates :unit, presence: true
+    serialize :buyer, Array
 end

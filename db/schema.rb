@@ -61,6 +61,7 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
     t.string "description"
     t.integer "stock_info"
     t.string "unit"
+    t.integer "buyers", default: [], array: true
     t.bigint "user_id"
     t.bigint "reviews_id"
     t.datetime "created_at", precision: 6, null: false
