@@ -14,6 +14,8 @@ a {
 
 .hero-header {
   width: 45%;
+  padding-bottom: 16px;
+  margin-top: 32px;
 
 }
 
@@ -38,16 +40,16 @@ p {
 h1 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 46px;
-  line-height: 46px;
+  font-size: 44px;
+  line-height: 44px;
   color: #232323;
 }
 
 h2 {
   font-family: 'Roboto', sans-serif;
   font-weight: 300;
-  font-size: 36px;
-  line-height: 46px;
+  font-size: 24px;
+  line-height: 32px;
   color: #232323;
 }
 
@@ -77,6 +79,8 @@ h4 {
   vertical-align: middle;
   transition: all .5s;
 }
+
+
 
 .card-info {
   padding: 0 24px 24px;
