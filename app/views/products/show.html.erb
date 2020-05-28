@@ -50,6 +50,9 @@
  <ul class=ml-5 style="list-style: none">
  <% @product.reviews.each do |review| %>
   <li><h5> <%= "#{review.content}" %> </h5> </li>
+  <%if review.product.buyers.include? review.user_id %>
+    <p>Verified purchase</p>
+  <%end%>
   <%end%>
 </ul>
 
