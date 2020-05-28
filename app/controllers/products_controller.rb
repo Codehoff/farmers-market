@@ -6,7 +6,16 @@ class ProductsController < ApplicationController
   # end
 
   def index
-    @products = Product.all
+    if params[:query].present?
+      sql_query = " \
+        products.name ILIKE :query \
+        OR products.description ILIKE :query \
+        OR categories.name ILIKE :query \
+      "
+      @products = Product.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+    else
+      @products = Product.all
+    end
   end
 
   def show
