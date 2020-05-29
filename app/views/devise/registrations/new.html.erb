@@ -1,55 +1,36 @@
+<div class="disp-flex">
+  <%=image_tag("applecake.jpg", class: "signup-bg") %>
+  <div class=container style="width:60%";>
+    <h2 style="margin-top:32px;">Welcome to FarmersMarket</h2>
+    <p>Let's get you all set up so you can begin cooking up your first real meal! </p>
+    <p> <i style="color:rgba(35,35,35,0.5)">Already have an account? </i> <%= render "devise/shared/links", class: "login-link" %></p>
+    <%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= f.error_notification %>
+    <div class="form-inputs" style="width:480px;">
+      <%= f.input :email,
+      required: true,
+      autofocus: true,
+      input_html: { class: "form-inpt", autocomplete: "email" }%>
+      <%= f.input :first_name,
+      required: true,
+      autofocus: true,
+      input_html: { class: "form-inpt", autocomplete: "first_name" }%>
+      <%= f.input :last_name,
+      required: true,
+      autofocus: true,
+      input_html: { class: "form-inpt", autocomplete: "last_name" }%>
 
-<div class=container>
-
-<h2>Sign up</h2>
-<div class=product-wrapper>
-
-<%= simple_form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
-  <%= f.error_notification %>
-
-  <div class="form-inputs">
-    <%= f.input :email,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "email" }%>
-    <%= f.input :first_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "first_name" }%>
-    <%= f.input :last_name,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "last_name" }%>
-    <%= f.input :address,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "address" }%>
-    <%= f.input :postal_code,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "postal_code" }%>
-    <%= f.input :city,
-                required: true,
-                autofocus: true,
-                input_html: { autocomplete: "city" }%>
-    <%= f.input :password,
-                required: true,
-                hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
-                input_html: { autocomplete: "new-password" } %>
-    <%= f.input :password_confirmation,
-                required: true,
-                input_html: { autocomplete: "new-password" } %>
+      <%= f.input :password,
+      required: true,
+      hint: ("#{@minimum_password_length} characters minimum" if @minimum_password_length),
+      input_html: { class: "form-inpt", autocomplete: "new-password" } %>
+      <%= f.input :password_confirmation,
+      required: true,
+      input_html: { class: "form-inpt", autocomplete: "new-password" } %>
+    </div>
+    <div class="form-actions">
+      <%= f.button :submit, "Sign up", class: "btn-main" %>
+    </div>
+    <% end %>
   </div>
-
-  <div class="form-actions">
-    <button class=btn-main>
-    <%= f.button :submit, "Sign up" %>
-    </button>
-  </div>
-<% end %>
-  <div class="product-wrapper">
-<%= render "devise/shared/links" %>
-
-
 </div>
-
