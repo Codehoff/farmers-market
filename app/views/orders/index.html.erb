@@ -21,7 +21,7 @@
               <li><strong>Order id:</strong> <%= "#{order.id}" %> </h3> </li>
               <li><strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
               <li><strong>Description: </strong> <%= "#{order.product.description}" %> </li>
-              <%= link_to "Leave a review", "/products/#{order.product.id}/reviews/new", {:class => "btn-outline-secondary ml-2"} %>
+              <%= link_to "Leave a review", "/products/#{order.product.id}", {:class => "btn-outline-secondary ml-2"} %>
             </ul>
           <%end%>
         <% end %>
