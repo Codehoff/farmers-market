@@ -12,7 +12,7 @@ class ProductsController < ApplicationController
         OR products.description ILIKE :query \
         OR categories.name ILIKE :query \
       "
-      @products = Product.joins(:category).where(sql_query, query: "%#{params[:query]}%")
+      @products = policy_scope(Product).joins(:category).where(sql_query, query: "%#{params[:query]}%")
     else
       @products = policy_scope(Product).order(created_at: :asc)
     end
