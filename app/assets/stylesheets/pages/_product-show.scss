@@ -3,6 +3,7 @@
   display: flex;
   margin-top: 32px;
   margin-bottom: 32px;
+  height: 450px;
 }
 
 .product-wrapper h3 {
@@ -15,6 +16,7 @@
 /* The grid: Four equal columns that floats next to each other */
 
 .gallery {
+  height: 250px;
   display: flex;
 
 }
@@ -57,6 +59,7 @@
 }
 
 .gallery-big-img {
+  height: 250px;
   position: relative;
    animation-delay: 2s;
 }

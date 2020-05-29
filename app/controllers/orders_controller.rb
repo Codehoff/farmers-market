@@ -29,12 +29,12 @@ class OrdersController < ApplicationController
       end
 
       if @order.save
+         @product.stock_info -= @order.quantity
          @product.save
           redirect_to "/orders"
       else
           render :new
       end
-    end
 
     def destroy
       authorize @order
