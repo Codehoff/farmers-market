@@ -23,69 +23,49 @@ a:hover, a:focus {
   color:white;
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
 
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 46px;
-  line-height: 46px;
-  color: #232323;
-}
-
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 36px;
-  line-height: 46px;
-  color: #232323;
-}
-
-h4 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(35, 35, 35, 0.5);
-  margin:0;
-}
 .product-wrapper {
   display: flex;
   margin-top: 32px;
-  height:100vh;
+
+}
+
+
+.outer-card {
+  width:300px;
+display:flex;
+justify-content:center;
 }
 .big-card {
- width: 300px;
- background-color: rgba(253, 235, 227, 0.5);
-/* background-color: #F3ECDD;*/
-display: inline-block;
-overflow: hidden;
-margin: 16px;
+display:flex;
+justify-content:center;
+justify-self:start;
+background-color: #F3ECDD;
+align-items:center;
+width:300px;
+height:300px;
 }
 
 .card-img {
-  width: 100%;
-  height: 194px;
+  width: 200px;
+  height: 200px;
   background-color: black; /* fallback color */
-  // background-image: url("https://images.unsplash.com/photo-1557800636-894a64c1696f?ixlib=rb-1.2.1&auto=format&fit=crop&w=1001&q=80");
-  background-position: center;
-  background-size: cover;
-  vertical-align: middle;
+  object-fit: cover;
+  box-shadow: 0px 0px 8px gray;
 
 }
 
 .big-card:hover .card-img,
 .big-card:focus .card-img {
-  transform: scale(1.02);
-    -webkit-transform:scale(1.02); /* Safari and Chrome */
-    -moz-transform:scale(1.02); /* Firefox */
+  transform: scale(1.01);
+    -webkit-transform:scale(1.01); /* Safari and Chrome */
+    -moz-transform:scale(1.01); /* Firefox */
   }
 
   .card-info {
-    padding: 0 24px 24px;
+
     font-family: 'Roboto', sans-serif;
+    text-align: center;
   }
 
   .card-info h3 {
@@ -94,12 +74,14 @@ margin: 16px;
     font-weight: 400;
     color: #232323;
     margin: 16px 0 4px 0;
+    text-align: center;
   }
 
   .desc-text {
     font-size: 14px;
     font-weight: 400;
     color: rgba(16, 16, 16, 0.6);
+    text-align: center;
   }
 
   .price {
@@ -137,4 +119,25 @@ margin: 16px;
     font-size: 14px;
     font-weight: 400;
     border-radius: 8px;
+  }
+
+ .search-section {
+  // position:relative;
+   background-image:url('search.png');
+     background-position: bottom right;
+
+    background-repeat: no-repeat;
+ }
+
+  .search-bg {
+    margin-top:240px;
+
+
+  }
+
+  .farm-search{
+  width: 600px !important;
+
+ line-height: 2.8em;
+ border: 1px solid #232323;
   }

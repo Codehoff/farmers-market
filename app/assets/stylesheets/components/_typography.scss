@@ -1,0 +1,60 @@
+
+
+p {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+}
+
+h1 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 46px;
+  line-height: 46px;
+  color: #232323;
+}
+
+h2 {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300;
+  font-size: 36px;
+  line-height: 46px;
+  color: #232323;
+}
+
+h4 {
+  font-family: 'Roboto', sans-serif;
+  font-size: 16px;
+  font-weight: 500;
+  color: rgba(35, 35, 35, 0.5);
+  margin:0;
+}
+
+.hero-motto {
+  font-family: 'Roboto', sans-serif;
+  font-weight: 300 !important;
+  font-size: 44px;
+  line-height: 44px;
+  color: #232323;
+}
+
+.big-text {
+  margin:32px 0;
+}
+
+.cool-quote {
+  font-style:italic;
+  margin:120px auto;
+  text-align: center;
+  font-size: 22px;
+  width: 70%;
+  line-height:34px;
+  color:gray;
+}
+
+.login-link{
+  background-color: #88B6A4 !important;
+  padding: 4px 4px;
+  font-weight:400;
+  border-radius: 2px;
+  margin-left: 8px;
+}

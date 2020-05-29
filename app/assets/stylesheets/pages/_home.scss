@@ -16,12 +16,22 @@ a {
   width: 45%;
   padding-bottom: 16px;
   margin-top: 32px;
+  height:280px;
 
 }
 
-a:hover, a:focus {
-  text-decoration:none;
-  color:white;
+.illustration {
+  margin-bottom: 40px;
+}
+
+.home-drawing {
+  width:65%;
+  margin-left: 16px;
+}
+
+.value-prop{
+  width:90%;
+  line-height:1.6em;
 }
 
 .light-a {
@@ -32,34 +42,7 @@ a:hover, a:focus {
   color:black;
 }
 
-p {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-}
 
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 44px;
-  line-height: 44px;
-  color: #232323;
-}
-
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 24px;
-  line-height: 32px;
-  color: #232323;
-}
-
-h4 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(35, 35, 35, 0.5);
-  margin:0;
-}
 
 .big-card {
  width: 300px;
