@@ -22,7 +22,7 @@
               <li><strong>Amount: </strong><%= "#{order.quantity} #{order.product.unit}" %> </li>
               <li><strong>Description: </strong> <%= "#{order.product.description}" %> </li>
               <li class=btn-main> <%= link_to 'Edit order', edit_order_path(order) %> </li>
-              <%= link_to "Leave a review", "/products/#{order.product.id}/reviews/new", {:class => "btn-outline-secondary ml-2"} %>
+              <%= link_to "Leave a review", "/products/#{order.product.id}", {:class => "btn-outline-secondary ml-2"} %>
             </ul>
           <%end%>
         <% end %>
