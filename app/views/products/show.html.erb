@@ -1,3 +1,10 @@
+<script>
+function myFunction(imgs) {
+  var expandImg = document.getElementById("expandedImg");
+  expandImg.src = imgs.src;
+}
+</script>
+
 <body>
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
@@ -9,9 +16,16 @@
 
     <div class="thumb-row">
 
+
       <% @product.photos.each do |photo| %>
       <div class="column">
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+
+
+
+      <img src='<%= cl_image_path photo.key, height: 300, width: 400, crop: :fill %>' onclick=myFunction(this)>
+
+
+
       </div>
       <% end %>
       </div>
