@@ -50,13 +50,11 @@
 
         <%= simple_form_for([@product, @order]) do |f| %>
         <p>Enter the quantity you want to add:</p>
-        <%= f.input :quantity, input_html: { max: @product.stock_info } %>
+        <%= f.input :quantity, input_html: { min: 0 } %>
         <%= f.button :submit, class: "btn btn-primary" %>
         <% end %>
       </div>
     </div>
-    <button class="btn-main"><%= link_to "Leave a review", "/products/#{@product.id}/reviews/new" %></button>
-
   </div>
 </div>
 </div>
@@ -69,5 +67,3 @@
   <%end%>
   <%end%>
 </ul>
-
-
