@@ -43,25 +43,26 @@ function myFunction(imgs) {
       </div>
     </div>
   </div>
-  <div>
-    <h2>Leave a review</h2>
-    <%= simple_form_for [ @product, @review ] do |f| %>
-    <%= f.input :content %>
-    <%= f.submit "Submit review", class: "btn btn-primary" %>
-    <% end %>
-  </div>
-  <br>
-  <br>
-  <h2>Reviews:</h2>
-  <ul style="list-style: none">
-    <% @product.reviews.each do |review| %>
-    <div style ="border:1px solid #B8B8B8;padding: 8px;margin-top: 8px">
-      <%if review.product.buyers.include? review.user_id %>
-      <p style="text-align:right; color:#006600 ">Verified purchase</p>
-      <li><h5> <%= "#{review.content}" %> </h5> </li>
-    </div>
-    <%end%>
-    <%end%>
-  </ul>
-</div>
-</div>
+        <div>
+          <h2>Leave a review</h2>
+          <%= simple_form_for [ @product, @review ] do |f| %>
+            <%= f.input :content %>
+            <%= f.submit "Submit review", class: "btn btn-primary" %>
+          <% end %>
+          </div>
+          <br>
+          <br>
+          <h2>Reviews:</h2>
+          <ul style="list-style: none">
+          <% @product.reviews.each do |review| %>
+            <div style ="border:1px solid #B8B8B8;padding: 8px;margin-top: 8px">
+              <%if review.product.buyers.include? review.user_id %>
+                <p style="text-align:right; color:#006600 ">Verified purchase</p>
+              <%end%>
+              <p><%=current_user.first_name%> said: </p>
+            <li><h5> <%= "#{review.content}" %> </h5> </li>
+            </div>        
+          <%end%>
+          </ul>
+        </div>
+
