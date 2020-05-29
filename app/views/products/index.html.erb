@@ -1,5 +1,6 @@
 
 <div class="container">
+
   <div class="search-section">
     <div class="search-bg">
       <%= form_tag products_path, method: :get, wrapper_html: {class: "form-inline"} do %>
@@ -20,6 +21,7 @@
             <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
           </div>
         </div>
+
         <% end %>
       </div>
       <% end %>
