@@ -88,8 +88,6 @@ ActiveRecord::Schema.define(version: 2020_05_27_081802) do
     t.string "first_name", default: "", null: false
     t.string "last_name", default: "", null: false
     t.string "address", default: "", null: false
-    t.string "postal_code", default: "", null: false
-    t.string "city", default: "", null: false
     t.string "encrypted_password", default: "", null: false
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
