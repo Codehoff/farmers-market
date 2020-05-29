@@ -6,7 +6,6 @@ function myFunction(imgs) {
 }
 </script>
 
-<body>
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
   <div class="container">
@@ -61,7 +60,7 @@ function myFunction(imgs) {
               <%end%>
               <p><%=current_user.first_name%> said: </p>
             <li><h5> <%= "#{review.content}" %> </h5> </li>
-            </div>        
+            </div>
           <%end%>
           </ul>
         </div>
