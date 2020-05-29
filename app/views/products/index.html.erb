@@ -19,14 +19,14 @@
         <% if params[:query] == nil %>
         <h2 class= "searched">All Products</h2>
         <% else %>
-        <h2 class= "searched">Search Results for: <% params[:query] %> </h2>
+        <h2 class= "searched">Search Results for: <i><%= params[:query] %></i> </h2>
         <% end %>
-
         <p><i>You can use the search bar to narrow down the product list!</i></p>
       </div>
       <div class="cards">
         <% @products.each do |product | %>
         <div class="card-category"> <%= link_to "products/#{product.id}" do %>
+
           <div class="outer-card">
             <div class="big-card">
               <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
