@@ -56,10 +56,12 @@ function myFunction(imgs) {
           <% @product.reviews.each do |review| %>
             <div style ="border:1px solid #B8B8B8;padding: 8px;margin-top: 8px">
               <%if review.product.buyers.include? review.user_id %>
-                <p style="text-align:right; color:#006600 ">Verified purchase</p>
+                <p style="text-align:right; color:#006600; display:inline ">Verified purchase &nbsp;&nbsp</p>
               <%end%>
-              <p><%=current_user.first_name%> said: </p>
-            <li><h5> <%= "#{review.content}" %> </h5> </li>
+              <h5 style="display:inline"><strong><%=current_user.first_name%></strong><p style="display:inline"> said:</p>
+              <br>
+              <br>
+            <p> <%= "#{review.content}" %> </p>
             </div>
           <%end%>
           </ul>
