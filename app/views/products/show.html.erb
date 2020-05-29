@@ -1,4 +1,4 @@
-<body> 
+<body>
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
 <div class="container">
@@ -41,7 +41,7 @@
         <div>
           <h2>Leave a review</h2>
           <%= simple_form_for [ @product, @review ] do |f| %>
-            <%= f.input :content %>  
+            <%= f.input :content %>
             <%= f.submit "Submit review", class: "btn btn-primary" %>
           <% end %>
           </div>
