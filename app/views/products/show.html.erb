@@ -1,19 +1,19 @@
-<body>
+
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
-<div class="container">
+  <div class="container">
 
- <h1 style="margin-top: 16px;">Product Detail Page</h1>
- <div class="product-wrapper">
-  <div class="gallery">
+   <h1 style="margin-top: 16px;">Product Detail Page</h1>
+   <div class="product-wrapper">
+    <div class="gallery">
 
-    <div class="thumb-row">
+      <div class="thumb-row">
 
-      <% @product.photos.each do |photo| %>
-      <div class="column">
-      <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
-      </div>
-      <% end %>
+        <% @product.photos.each do |photo| %>
+        <div class="column">
+          <%= cl_image_tag photo.key, height: 300, width: 400, crop: :fill %>
+        </div>
+        <% end %>
       </div>
       <div class="gallery-big-img">
         <img id="expandedImg" src="<%= cl_image_path @product.photos.first.key %>">
@@ -38,24 +38,25 @@
       </div>
     </div>
   </div>
-        <div>
-          <h2>Leave a review</h2>
-          <%= simple_form_for [ @product, @review ] do |f| %>
-            <%= f.input :content %>
-            <%= f.submit "Submit review", class: "btn btn-primary" %>
-          <% end %>
-          </div>
-          <br>
-          <br>
-          <h2>Reviews:</h2>
-          <ul style="list-style: none">
-          <% @product.reviews.each do |review| %>
-            <div style ="border:1px solid #B8B8B8;padding: 8px;margin-top: 8px">
-              <%if review.product.buyers.include? review.user_id %>
-              <p style="text-align:right; color:#006600 ">Verified purchase</p>
-            <li><h5> <%= "#{review.content}" %> </h5> </li>
-            </div>
-            <%end%>
-          <%end%>
-          </ul>
-        </div>
+  <div>
+    <h2>Leave a review</h2>
+    <%= simple_form_for [ @product, @review ] do |f| %>
+    <%= f.input :content %>
+    <%= f.submit "Submit review", class: "btn btn-primary" %>
+    <% end %>
+  </div>
+  <br>
+  <br>
+  <h2>Reviews:</h2>
+  <ul style="list-style: none">
+    <% @product.reviews.each do |review| %>
+    <div style ="border:1px solid #B8B8B8;padding: 8px;margin-top: 8px">
+      <%if review.product.buyers.include? review.user_id %>
+      <p style="text-align:right; color:#006600 ">Verified purchase</p>
+      <li><h5> <%= "#{review.content}" %> </h5> </li>
+    </div>
+    <%end%>
+    <%end%>
+  </ul>
+</div>
+</div>
