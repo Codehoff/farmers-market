@@ -1,5 +1,5 @@
 class OrdersController < ApplicationController
-  before_action :set_order, only: [:show]
+  before_action :set_order, only: [:show, :edit, :update]
 
 
   def index
@@ -35,17 +35,26 @@ class OrdersController < ApplicationController
       else
           render :new
       end
-
-    def destroy
-      authorize @order
-
     end
+
+  def edit
+  end
+
+  def update
+    @order.update(order_params)
+    redirect_to "/orders", notice: 'Your order was successfully updated.'
   end
 
   def destroy
+    authorize @order
   end
 
   private
+
+  def set_order
+    @order = Order.find(params[:id])
+    authorize @order
+  end
 
   def order_params
     params.require(:order).permit(:quantity)

@@ -1,16 +1,20 @@
-<h1>Editing Product</h1>
+<h1>Edit your listing:</h1>
 
 <div class=wrapper>
-    <div class="container mt-5">
+  <%=image_tag("carrothead.jpg", class: "top-bg") %>
+  <div class="container">
+  <h2 style="margin-top: 16px;">List your product</h2>
+  <p>Your item will become available whenever you create it.</p>
     <%= simple_form_for [ @product ] do |f| %>
-        <%= f.input :name %>
-        <%= f.input :description %>
-        <%= f.association :category %>
-        <%= f.input :unit %>
-        <%= f.input :stock_info, label: "In stock", input_html: { min: 0 } %>
-        <%= f.input :price %>
-        <%= f.input :photo, as: :file %>
-        <%= f.submit "Submit Listing", class: "btn btn-primary" %>
+        <%= f.input :name, input_html: { class: "form-inpt"} %>
+        <%= f.input :description, input_html: { class: "form-inpt"} %>
+        <%= f.association :category, input_html: { class: "form-inpt"} %>
+        <%= f.input :unit, input_html: { class: "form-inpt"} %>
+        <%= f.input :stock_info, label: "In stock", input_html: { class: "form-inpt", min: 0 } %>
+        <%= f.input :price, input_html: { class: "form-inpt"} %>
+        <%= f.input :photos, as: :file,  input_html: { multiple: true }%>
+        <%= f.submit "List Item", class: "btn-main" %>
     <% end %>
   </div>
 </div>
+
