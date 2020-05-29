@@ -1,6 +1,6 @@
 // Import page-specific CSS files here.
 @import "home";
-
+@import "components/typography";
 a {
   color:white;
 }
@@ -27,6 +27,17 @@ a:hover, a:focus {
   display: flex;
   margin-top: 32px;
 
+}
+
+
+.cardtext1 {
+font-weight:400;
+}
+
+.cardtext2 {
+  font-family: 'Roboto', sans-serif;
+font-weight:600;
+color: rgba(0, 0, 0, 0.6);
 }
 
 .outer-card {

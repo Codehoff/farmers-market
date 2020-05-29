@@ -32,8 +32,9 @@
               <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
             </div>
           </div>
-          <h3 class="card-info"> <%= product.name%></h3>
-          <h4 class="card-info"> <%= product.description%></h4>
+          <h3 class="card-info cardtext1" style="margin-top: 16px;"> <%= product.name%></h3>
+          <h3 class="card-info" style="font-weight: 600; color: rgba(0, 0, 0, 0.4);"> <%= product.user.first_name%></h3>
+          <h3 class="card-info" data-hover="Add to cart" style="font-weight: 600; color: rgba(0, 0, 0, 1); margin-top: 8px;"> <%= number_to_currency(product.price, :unit => "€")%></h3>
           <% end %>
         </div>
         <% end %>
