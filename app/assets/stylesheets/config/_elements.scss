@@ -1,32 +1,22 @@
 body {
   font-family: 'Roboto', sans-serif;
   background-color: white !important;
+  padding-top: 60px;
 }
 
-h1 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 46px;
-  line-height: 46px;
-  color: #232323;
+html {
+  box-sizing: border-box;
 }
-
-h2 {
-  font-family: 'Roboto', sans-serif;
-  font-weight: 300;
-  font-size: 36px;
-  line-height: 46px;
-  color: #232323;
-}
-
-h4 {
-  font-family: 'Roboto', sans-serif;
-  font-size: 16px;
-  font-weight: 500;
-  color: rgba(35, 35, 35, 0.5);
-  margin:0;
+*, *:before, *:after {
+  box-sizing: inherit;
 }
 
 a {
-  color:white;
+  color:#0985c5;
+}
+
+
+a:hover, a:focus {
+  text-decoration:none;
+  color:black;
 }

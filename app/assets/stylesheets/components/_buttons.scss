@@ -17,6 +17,25 @@
   padding:16px 80px;
 }
 
+.btn-big-home {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: #367978;
+  padding:16px 80px;
+  transition: 0.2s;
+  border:none;
+  margin-top: 48px;
+}
+
+.btn-big-home:hover {
+  color: white;
+  font-size: 16px;
+  font-weight: 300;
+  background-color: #439795;
+  padding:16px 80px;
+}
+
 .btn-main {
   color: white;
   font-size: 14px;

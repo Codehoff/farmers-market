@@ -1,25 +1,38 @@
-
-  <div class="container" style="min-height: 100vh;" >
-    <div style="display: flex; align-items: flex-end;">
-
+<div class="wrapper">
+  <div class="container">
+    <div class="flex-hero" >
       <div class="hero-header">
-        <h1 class= "hero-motto" style="color: black;">A beautiful meal is a work of heart</h1>
-        <p class="hero-text" style="color: black;"> Get your veggies from a local farm around you. And share what you've grown with people!</p>
-        <%= link_to "Sign Up", "/users/sign_up", class: "btn-big" %>
+        <h1>A beautiful meal is a work of heart</h1>
+        <br>
+        <p class="value-prop"> Get your veggies from a local farm around you. And share what you've grown with people!</p><br>
+        <% if user_signed_in? %>
+        <%= link_to "Get Involved", "/products", class: "btn-big-home" %>
+        <% else %>
+        <p><%= link_to "Get Involved", "/users/sign_up", class: "btn-big-home" %></p>
+        <% end %>
       </div>
       <%=image_tag("farmdrawing.jpg", class: "home-drawing") %>
     </div>
-    <section class="big-text">
-    <h2 style="font-style:italic; margin:100px auto;text-align: center; font-size: 22px; width: 70%; line-height:34px; color:gray; "> "Choosing to purchase locally grown food is an important way to support your local economy, contribute to your community, improve your health and do your part to protect the environment. Getting involved in the local food system helps us to gain back the separation we created between humans and food production."
-</h2>
-    <div>
+    <section>
+      <h2 class="cool-quote"> "Choosing to purchase locally grown food is an important way to support your local economy, contribute to your community, improve your health and do your part to protect the environment. Getting involved in the local food system helps us to gain back the separation we created between humans and food production."
+      </h2>
+      <%=image_tag("farmphotos2.jpg", style: "width:100%; margin-top:120px 0;") %>
+      <div class="disp-flex">
 
-    <%=image_tag("farmpic2.jpg", style: "width:100%;") %>
-    </div>
-    <div style="margin: 0 auto;">
-<%= link_to "See Products", "/products", class: "btn-big-2" %>
-    </div>
+        <div>
+          <h2 id="about" style="margin-top:80px;">A safer food supply</h2>
+          <p class="value-prop">The more steps there are between you and your food’s source the more chances there are for contamination. Food grown in distant locations has the potential for food safety issues at harvesting, washing, shipping and distribution.</p>
+        </div>
+
+        <div>
+          <h2 style="margin-top:160px;">We see the opportunity to make a difference</h2>
+          <p class="value-prop">The money that is spent with local farmers and growers all stays close to home and is reinvested with businesses and services in your community.</p>
+        </div>
+      </div>
+      <div class="center">
+
+        <p style="margin: 80px 0;"><%= link_to "See Products", "/products", class: "btn-big-2 center" %></p>
+      </div>
     </section>
   </div>
-
-
+</div>
