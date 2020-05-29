@@ -29,8 +29,9 @@
               <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
             </div>
           </div>
-          <h3 class="card-info"> <%= product.name%></h3>
-          <h4 class="card-info"> <%= product.description%></h4>
+          <h3 class="big-text"> <%= product.name%></h3>
+          <p class="card-info"style="color:black"><%= product.user.first_name %></p>
+          <h4 class="card-info"> <%= product.price%>€</h4>
           <% end %>
         </div>
         <% end %>
