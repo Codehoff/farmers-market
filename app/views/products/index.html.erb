@@ -1,4 +1,3 @@
-
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
   <div class="container">
@@ -14,7 +13,6 @@
         </div>
       </div>
       <br>
-
       <div class="wide-head">
         <% if params[:query] == nil %>
         <h2 class= "searched">All Products</h2>
@@ -26,7 +24,6 @@
       <div class="cards">
         <% @products.each do |product | %>
         <div class="card-category"> <%= link_to "products/#{product.id}" do %>
-
           <div class="outer-card">
             <div class="big-card">
               <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
