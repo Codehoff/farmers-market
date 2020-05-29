@@ -1,3 +1,4 @@
+
 <script>
 function myFunction(imgs) {
   var expandImg = document.getElementById("expandedImg");
@@ -8,24 +9,14 @@ function myFunction(imgs) {
 <body>
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
-<div class="container">
-
- <h1 style="margin-top: 16px;">Product Detail Page</h1>
- <div class="product-wrapper">
-  <div class="gallery">
-
-    <div class="thumb-row">
-
-
+  <div class="container">
+   <h1 style="margin-top: 16px;">Product Detail Page</h1>
+   <div class="product-wrapper">
+    <div class="gallery">
+      <div class="thumb-row">
       <% @product.photos.each do |photo| %>
       <div class="column">
-
-
-
       <img src='<%= cl_image_path photo.key, height: 300, width: 400, crop: :fill %>' onclick=myFunction(this)>
-
-
-
       </div>
       <% end %>
       </div>
@@ -74,3 +65,4 @@ function myFunction(imgs) {
           <%end%>
           </ul>
         </div>
+

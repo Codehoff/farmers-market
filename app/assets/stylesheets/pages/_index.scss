@@ -23,27 +23,30 @@ a:hover, a:focus {
   color:white;
 }
 
-
 .product-wrapper {
   display: flex;
   margin-top: 32px;
 
 }
 
-
 .outer-card {
-  width:300px;
+width:300px;
 display:flex;
 justify-content:center;
+
 }
 .big-card {
 display:flex;
 justify-content:center;
 justify-self:start;
-background-color: #F3ECDD;
+background-color: #CAC0A5;
 align-items:center;
 width:300px;
 height:300px;
+}
+
+.big-card:hover {
+background-color: #EDC585;
 }
 
 .card-img {
@@ -62,22 +65,18 @@ height:300px;
     -moz-transform:scale(1.01); /* Firefox */
   }
 
-  .card-info {
 
+  .card-info  {
     font-family: 'Roboto', sans-serif;
-    text-align: center;
-  }
-
-  .card-info h3 {
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
+    font-size: 16px;
     font-weight: 400;
     color: #232323;
-    margin: 16px 0 4px 0;
+    margin: 0 auto;
     text-align: center;
   }
 
   .desc-text {
+    width:300px;
     font-size: 14px;
     font-weight: 400;
     color: rgba(16, 16, 16, 0.6);
@@ -121,22 +120,36 @@ height:300px;
     border-radius: 8px;
   }
 
- .search-section {
-  // position:relative;
-   background-image:url('search.png');
-     background-position: bottom right;
-
-    background-repeat: no-repeat;
- }
-
   .search-bg {
-    margin-top:240px;
+    margin:0 auto;
+margin-left: 16px;
+margin-top: -80px;
+  }
 
+  .searched {
+    margin: 0;
+  }
 
+  .wide-head {
+    margin-top:24px;
+    width: 100%;
+    display:flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    padding: 16px 48px 16px 24px;
+  }
+
+  .wide-head p {
+    color: rgba(0, 0, 0, 0.6);
+    font-size: 14px;
+  }
+
+  .search-bg .btn-main {
+line-height: 2em;
   }
 
   .farm-search{
-  width: 600px !important;
+  width: 900px !important;
 
  line-height: 2.8em;
  border: 1px solid #232323;
