@@ -11,10 +11,7 @@ Review.destroy_all
 Product.destroy_all
 
 
-
-
-categories =  ["Leafy green", "Cruciferous", "Marrow", "Root", "Edible plant stem", "Allium"]
-
+categories =  ["Vegetable", "Fruit", "Pasta prducts", "Beverages", "Meat"]
 categories.each do |categorie|
     Category.create(name: categorie )
 end
