@@ -5,5 +5,5 @@ Rails.application.routes.draw do
     resources :orders, only: [:new, :create]
     resources :reviews, only: [:new, :create]
   end
-  resources :orders, only: [:destroy, :index]
+  resources :orders, only: [:destroy, :index, :edit, :update]
 end

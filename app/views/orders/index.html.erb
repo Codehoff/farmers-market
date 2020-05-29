@@ -19,9 +19,10 @@
             <p> <%=  "Order contains:" %> </p>
             <ul style="list-style: none">
               <li><strong>Order id:</strong> <%= "#{order.id}" %> </h3> </li>
-              <li><strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
+              <li><strong>Amount: </strong><%= "#{order.quantity} #{order.product.unit}" %> </li>
               <li><strong>Description: </strong> <%= "#{order.product.description}" %> </li>
-              <%= link_to "Leave a review", "/products/#{order.product.id}/reviews/new", {:class => "btn-outline-secondary ml-2"} %>
+              <li class=btn-main> <%= link_to 'Edit order', edit_order_path(order) %> </li>
+              <%= link_to "Leave a review", "/products/#{order.product.id}", {:class => "btn-outline-secondary ml-2"} %>
             </ul>
           <%end%>
         <% end %>
@@ -47,8 +48,9 @@
             <br>
             <ul style="list-style: none">
               <li><h3>  </h3> </li>
-              <li><strong>In stock: </strong><%= "#{product.stock_info}#{product.unit}" %> </li>
+              <li><strong>In stock: </strong><%= "#{product.stock_info} #{product.unit}" %> </li>
               <li><strong>Description: </strong> <%= "#{product.description}" %> </li>
+              <li class=btn-main> <%= link_to 'Edit listing', edit_product_path(product) %> </li>
             </ul>
           <%end%>
         <% end %>
@@ -67,7 +69,7 @@
             <p> <%=  "Order contains:" %> </p>
             <ul style="list-style: none">
               <li> <strong>Order id: </strong> <%="#{order.id}" %> </li>
-              <li> <strong>Amount: </strong><%= "#{order.quantity}#{order.product.unit}" %> </li>
+              <li> <strong>Amount: </strong><%= "#{order.quantity} #{order.product.unit}" %> </li>
               <li> <strong>Description: </strong> <%= "#{order.product.description}" %> </li>
             </ul>
           <%end%>
