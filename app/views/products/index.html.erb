@@ -1,29 +1,41 @@
 
-<div class="container">
-
-  <div class="search-section">
-    <div class="search-bg">
-      <%= form_tag products_path, method: :get, wrapper_html: {class: "form-inline"} do %>
-      <%= text_field_tag :query,
-      params[:query],
-      class: "farm-search",
-        placeholder: "Search for a product or a category"%>
-        <%= submit_tag "Search", class: "btn-main" %>
-        <% end %>
-      </div>
-    </div>
-    <h2 style="margin:16px;">All Products</h2>
-    <div class="cards">
-      <% @products.each do |product | %>
-      <div class="card-category"> <%= link_to "products/#{product.id}" do %>
-        <div class="outer-card">
-          <div class="big-card">
-            <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
-          </div>
+<div class=wrapper>
+  <%=image_tag("carrothead.jpg", class: "top-bg") %>
+  <div class="container">
+    <div class="search-section">
+      <div class="search-bg">
+        <%= form_tag products_path, method: :get, wrapper_html: {class: "form-inline"} do %>
+        <%= text_field_tag :query,
+        params[:query],
+        class: "farm-search",
+          placeholder: "Search for a product or a category"%>
+          <%= submit_tag "Search", class: "btn-main" %>
+          <% end %>
         </div>
+      </div>
+      <br>
 
+      <div class="wide-head">
+        <% if params[:query] == nil %>
+        <h2 class= "searched">All Products</h2>
+        <% else %>
+        <h2 class= "searched">Search Results for: <% params[:query] %> </h2>
+        <% end %>
+
+        <p><i>You can use the search bar to narrow down the product list!</i></p>
+      </div>
+      <div class="cards">
+        <% @products.each do |product | %>
+        <div class="card-category"> <%= link_to "products/#{product.id}" do %>
+          <div class="outer-card">
+            <div class="big-card">
+              <img src="<%= cl_image_path product.photos.first.key %>" class= "card-img">
+            </div>
+          </div>
+          <h3 class="card-info"> <%= product.name%></h3>
+          <% end %>
+        </div>
         <% end %>
       </div>
-      <% end %>
     </div>
   </div>
