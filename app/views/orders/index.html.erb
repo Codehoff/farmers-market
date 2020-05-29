@@ -1,4 +1,4 @@
-<body>
+
   <br>
   <div class="container-orders ml-5">
     <div style="width:100%;background:#367978;padding:10px;border-top-left-radius:15px;border-bottom-left-radius:15px;">
@@ -12,7 +12,7 @@
         <br>
         <br>
         <br>
-      <%else%>                                  
+      <%else%>
         <% @orders.each do |order| %>
           <%if current_user.id == order.user.id%>
             <h3 class=text-dark> <%= "#{order.product.name}" %> </h3>
@@ -94,4 +94,3 @@
       <%= link_to "back to front page", "/products", {:class => "btn-outline-secondary ml-2"} %>
     </div>
   </div>
-</body>

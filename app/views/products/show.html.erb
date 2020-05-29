@@ -8,7 +8,7 @@ function myFunction(imgs) {
 
 <div class=wrapper>
   <%=image_tag("carrothead.jpg", class: "top-bg") %>
-  <div class="container">
+  <div class="container" style="height: 150vh;">
    <h1 style="margin-top: 16px;">Product Detail Page</h1>
    <div class="product-wrapper">
     <div class="gallery">
@@ -36,7 +36,7 @@ function myFunction(imgs) {
           <%= simple_form_for([@product, @order]) do |f| %>
           <p>Enter the quantity you want to add:</p>
           <%= f.input :quantity, input_html: { min: 0 } %>
-          <%= f.button :submit, class: "btn btn-primary" %>
+          <%= f.button :submit, class: "btn btn-main" %>
           <% end %>
         </div>
       </div>
@@ -46,7 +46,7 @@ function myFunction(imgs) {
           <h2>Leave a review</h2>
           <%= simple_form_for [ @product, @review ] do |f| %>
             <%= f.input :content %>
-            <%= f.submit "Submit review", class: "btn btn-primary" %>
+            <%= f.submit "Submit review", class: "btn btn-main" %>
           <% end %>
           </div>
           <br>
